@@ -7,7 +7,7 @@
 //  Copyright © 2020 Matin Massoudi. All rights reserved.
 //
 
-//Import functional libraries. 
+//Import functional libraries.
 import Foundation
 
 //Structs are go to data structure.
