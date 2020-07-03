@@ -22,9 +22,8 @@ struct MemoryGame<CardContent> {
     
     //Initialization method takes in function as parameter pass.
     init(numberOfPairsOfCards: Int, cardContentFunc: (Int) -> CardContent){
-        //init with empty array.
+        //initialize with empty array.
         cards = Array<Card>()
-        
         //Iterate based on numberOfCards, create two Card entities and add them to Cards array.
         for i in 0..<numberOfPairsOfCards {
             let content = cardContentFunc(i)
