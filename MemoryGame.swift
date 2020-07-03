@@ -10,6 +10,7 @@
 //Import functional libraries.
 import Foundation
 
+
 //Structs are go to data structure.
 struct MemoryGame<CardContent> {
     var cards: Array<Card>
