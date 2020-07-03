@@ -8,10 +8,16 @@
 
 import SwiftUI
 
+
 //class because it can be shared.
 class EmojiMemoryGame {
     //Only class can modify, but is accesible elsewhere.
-    private var model: MemoryGame<String> = MemoryGame<String>(cards: <#T##Array<MemoryGame<String>.Card>#>)
+    //Function inlining.
+    private var model: MemoryGame<String> = MemoryGame<String>(numberOfPairsOfCards: 3, cardContentFunc: {
+        (numPairs: Int) -> String in
+        return "🐔"
+    })
+    
     var cards: Array<MemoryGame<String>.Card>{
         return model.cards
     }
