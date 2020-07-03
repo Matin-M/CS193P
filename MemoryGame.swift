@@ -7,6 +7,7 @@
 //  Copyright © 2020 Matin Massoudi. All rights reserved.
 //
 
+//Import functional libraries. 
 import Foundation
 
 //Structs are go to data structure.
@@ -29,7 +30,6 @@ struct MemoryGame<CardContent> {
             cards.append(Card(isFaceUp: false, isMatched: false, content: content))
         }
     }
-    
     
     //Nested 'card' struct.
     struct Card {
