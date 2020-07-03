@@ -7,7 +7,6 @@
 //
 
 //Import SwiftUI package.
-//Swift is strongly typed.
 import SwiftUI
 
 var newText: Text = Text("Hello!!")
@@ -18,18 +17,15 @@ struct ContentView: View {
     //Some signifies any struct as long as it behaves like view struct.
     //Computed vars like body are not stored in memory.
     var body: some View{
-        
-        return HStack(spacing: 7, content: {
+        return HStack(spacing: 4) {
             ForEach(0..<4, content: {_ in
                 //Return statements assumed.
                 CardView(isFaceUp: true)
                 
                 //Setting environment for all elements in zstack.
                 })
-            }).foregroundColor(Color.orange).padding().font(Font.largeTitle)
-        
-        //Iterator that creats more views.
-        
+            }.foregroundColor(Color.orange).padding().font(Font.largeTitle)
+
         
     }
 
