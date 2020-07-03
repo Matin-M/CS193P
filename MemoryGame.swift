@@ -17,18 +17,19 @@ struct MemoryGame<CardContent> {
         print("Card Chosen!\(card)")
     }
     
-    //Takes in function 
+    //Initialization method takes in function as parameter pass.
     init(numberOfPairsOfCards: Int, cardContentFunc: (Int) -> CardContent){
         //init with empty array.
         cards = Array<Card>()
         
-        for i in 0..<numberOfPairsOfCards{
+        for i in 0..<numberOfPairsOfCards {
             let content = cardContentFunc(i)
             cards.append(Card(isFaceUp: false, isMatched: false, content: content))
             cards.append(Card(isFaceUp: false, isMatched: false, content: content))
         }
     }
     
+    //Nested 'card' struct.
     struct Card {
         var isFaceUp: Bool
         var isMatched: Bool
