@@ -18,6 +18,7 @@ struct MemoryGame<CardContent> {
         print("Card Chosen!\(card)")
     }
     
+    
     //Initialization method takes in function as parameter pass.
     init(numberOfPairsOfCards: Int, cardContentFunc: (Int) -> CardContent){
         //init with empty array.
@@ -30,6 +31,7 @@ struct MemoryGame<CardContent> {
             cards.append(Card(isFaceUp: false, isMatched: false, content: content))
         }
     }
+    
     
     //Nested 'card' struct.
     struct Card {
