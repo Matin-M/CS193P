@@ -22,6 +22,7 @@ struct MemoryGame<CardContent> {
         //init with empty array.
         cards = Array<Card>()
         
+        //Iterate based on numberOfCards, create two Card entities and add them to Cards array.
         for i in 0..<numberOfPairsOfCards {
             let content = cardContentFunc(i)
             cards.append(Card(isFaceUp: false, isMatched: false, content: content))
