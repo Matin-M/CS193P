@@ -30,6 +30,7 @@ struct MemoryGame<CardContent> {
         }
     }
     
+    
     //Nested 'card' struct.
     struct Card {
         var isFaceUp: Bool
