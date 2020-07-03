@@ -12,15 +12,22 @@ import SwiftUI
 var newText: Text = Text("Hello!!")
 
 //Inherets view properties.
+//Views are rectangular areas on the screen.
+//Some signifies any struct as long as it behaves like view struct.
 struct ContentView: View {
-    //Views are rectangular areas on the screen.
-    //Some signifies any struct as long as it behaves like view struct.
+    
+    //ViewModel local object.
+    var viewModel: EmojiMemoryGame
+    
     //Computed vars like body are not stored in memory.
     var body: some View{
         return HStack(spacing: 4) {
-            ForEach(0..<4, content: {_ in
+            ForEach(viewModel.cards, content: {card in
                 //Return statements assumed.
-                CardView(isFaceUp: true)
+                CardView(card: card).onTapGesture(perform: {
+                    self.viewModel.choose(card: card)
+                    
+                })
                 
                 //Setting environment for all elements in zstack.
                 })
@@ -32,13 +39,13 @@ struct ContentView: View {
 
 struct CardView: View{
     //Since no init method, all properties must be initialized.
-    var isFaceUp: Bool
+    var card: MemoryGame<String>.Card
     var body: some View{
         ZStack{
-            if isFaceUp == true{
+            if card.isFaceUp == true{
                 RoundedRectangle(cornerRadius: 20.0).fill(Color.white)
                 RoundedRectangle(cornerRadius: 20.0).stroke(lineWidth: 4)
-                Text("🐔")
+                Text(card.content)
             }
             else{
                 backCardView()
@@ -61,6 +68,6 @@ struct backCardView: View{
 //Function that binds code and preiew.
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: EmojiMemoryGame())
     }
 }

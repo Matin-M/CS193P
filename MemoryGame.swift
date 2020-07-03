@@ -27,17 +27,19 @@ struct MemoryGame<CardContent> {
         //Iterate based on numberOfCards, create two Card entities and add them to Cards array.
         for i in 0..<numberOfPairsOfCards {
             let content = cardContentFunc(i)
-            cards.append(Card(isFaceUp: false, isMatched: false, content: content))
-            cards.append(Card(isFaceUp: false, isMatched: false, content: content))
+            cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: i*2))
+            cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: i*2+1))
         }
     }
     
     
     //Nested 'card' struct.
-    struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+    //Identifiable protocol gives struct identifiable property for iterations.
+    struct Card: Identifiable {
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
         var content: CardContent
+        var id: Int
     }
 }
 
