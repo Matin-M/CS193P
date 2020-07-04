@@ -26,7 +26,8 @@ struct ContentView: View {
                 //Return statements assumed.
                 CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    
+                    //Debug statement.
+                    print(card)
                 })
                 
                 //Setting environment for all elements in zstack.
