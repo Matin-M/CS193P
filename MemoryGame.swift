@@ -30,6 +30,8 @@ struct MemoryGame<CardContent> {
             cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: i*2))
             cards.append(Card(isFaceUp: true, isMatched: false, content: content, id: i*2+1))
         }
+        
+        cards = cards.shuffled()
     }
     
     
