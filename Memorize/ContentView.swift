@@ -19,7 +19,6 @@ struct ContentView: View {
     //ViewModel local object.
     var viewModel: EmojiMemoryGame = EmojiMemoryGame()
     
-    
     //Computed vars like body are not stored in memory.
     var body: some View{
         VStack(alignment: .leading, spacing: 4) {
@@ -27,9 +26,17 @@ struct ContentView: View {
             HStack(spacing: 4) {
             ForEach(viewModel.cards, content: {card in
                 //Return statements assumed.
-                CardView(card: card).onTapGesture(perform: {
+                
+                if (self.viewModel.cards.count >= 5) {
+                    CardView(card: card).onTapGesture(perform: {
+                    self.viewModel.choose(card: card)
+                    }).font(Font.largeTitle)
+                }
+                else {
+                    CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
                     })
+                }
                 
                 //Setting environment for all elements in zstack.
                 })
