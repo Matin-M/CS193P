@@ -17,21 +17,25 @@ var newText: Text = Text("Hello!!")
 struct ContentView: View {
     
     //ViewModel local object.
-    var viewModel: EmojiMemoryGame
+    var viewModel: EmojiMemoryGame = EmojiMemoryGame()
+    
     
     //Computed vars like body are not stored in memory.
     var body: some View{
-        return HStack(spacing: 4) {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("Something!")
+            HStack(spacing: 4) {
             ForEach(viewModel.cards, content: {card in
                 //Return statements assumed.
                 CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    
-                })
+                    })
                 
                 //Setting environment for all elements in zstack.
                 })
-            }.foregroundColor(Color.orange).padding().font(Font.largeTitle)
+            }
+        }.foregroundColor(Color.orange).padding()
+        
 
     }
 
