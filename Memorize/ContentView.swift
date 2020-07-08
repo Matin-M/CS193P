@@ -24,7 +24,7 @@ struct ContentView: View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 4) {
             ForEach(viewModel.cards, content: {card in
-                //Return statements assumed.
+                
                 
                 if (self.viewModel.cards.count >= 5) {
                     CardView(card: card).onTapGesture(perform: {
@@ -47,6 +47,9 @@ struct ContentView: View {
 
 }
 
+/**
+ CardView function generates rectangular elements containing emojis.
+ */
 struct CardView: View{
     //Since no init method, all properties must be initialized.
     var card: MemoryGame<String>.Card
@@ -66,6 +69,9 @@ struct CardView: View{
 
 }
 
+/**
+ backCardView generates flipped card. 
+ */
 struct backCardView: View{
     var body: some View{
         return RoundedRectangle(cornerRadius: 20.0).fill(Color.orange)

@@ -29,6 +29,8 @@ class EmojiMemoryGame {
         
     }
     
+    //MARK: -Access methods to private model data.
+    
     var cards: Array<MemoryGame<String>.Card>{
         return model.cards
     }
