@@ -22,7 +22,6 @@ struct ContentView: View {
     //Computed vars like body are not stored in memory.
     var body: some View{
         VStack(alignment: .leading, spacing: 4) {
-            Text("Something!")
             HStack(spacing: 4) {
             ForEach(viewModel.cards, content: {card in
                 //Return statements assumed.
@@ -30,12 +29,12 @@ struct ContentView: View {
                 if (self.viewModel.cards.count >= 5) {
                     CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    }).font(Font.largeTitle)
+                    })
                 }
                 else {
                     CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    })
+                    }).font(Font.largeTitle)
                 }
                 
                 //Setting environment for all elements in zstack.
