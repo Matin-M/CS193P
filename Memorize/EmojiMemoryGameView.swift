@@ -14,7 +14,7 @@ var newText: Text = Text("Hello!!")
 //Inherets view properties.
 //Views are rectangular areas on the screen.
 //Some signifies any struct as long as it behaves like view struct.
-struct ContentView: View {
+struct EmojiMemoryGameView: View {
     
     //ViewModel local object.
     var viewModel: EmojiMemoryGame = EmojiMemoryGame()
@@ -70,7 +70,7 @@ struct CardView: View{
 }
 
 /**
- backCardView generates flipped card. 
+ backCardView generates flipped card.
  */
 struct backCardView: View{
     var body: some View{
@@ -84,6 +84,6 @@ struct backCardView: View{
 //Function that binds code and preiew.
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }
