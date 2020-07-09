@@ -10,12 +10,12 @@ import SwiftUI
 
 
 //class because it can be shared.
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     //Only class can modify, but is accessible elsewhere.
     //Function inlining.
     
-    //Create memory is a type, using dot notation via class name.
-    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    //Published keyword calls change.send when model is changed.
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
     static func createMemoryGame() -> MemoryGame<String> {
         var emojis = ["👻","🎃","🐓","😃","😆"]
@@ -29,6 +29,7 @@ class EmojiMemoryGame {
         
     }
     
+    
     //MARK: -Access methods to private model data.
     
     var cards: Array<MemoryGame<String>.Card>{
@@ -39,6 +40,7 @@ class EmojiMemoryGame {
     
     func choose(card: MemoryGame<String>.Card)
     {
+        objectWillChange.send()
         model.choose(card: card)
     }
 }

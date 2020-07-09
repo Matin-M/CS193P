@@ -17,14 +17,14 @@ var newText: Text = Text("Hello!!")
 struct EmojiMemoryGameView: View {
     
     //ViewModel local object.
-    var viewModel: EmojiMemoryGame = EmojiMemoryGame()
+    //When viewModel change method is invoked, view is redrawn.
+    @ObservedObject var viewModel: EmojiMemoryGame = EmojiMemoryGame()
     
     //Computed vars like body are not stored in memory.
     var body: some View{
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 4) {
             ForEach(viewModel.cards, content: {card in
-                
                 
                 if (self.viewModel.cards.count >= 5) {
                     CardView(card: card).onTapGesture(perform: {

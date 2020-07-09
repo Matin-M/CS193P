@@ -15,8 +15,21 @@ import Foundation
 struct MemoryGame<CardContent> {
     var cards: Array<Card>
     
-    func choose(card: Card){
+    //Functions that modify 'self' utilized in structs.
+    mutating func choose(card: Card){
         print("Card Chosen!\(card)")
+        let chosenIndex: Int = indexOf(card)
+        self.cards[chosenIndex].isFaceUp = !self.cards[chosenIndex].isFaceUp
+    }
+    
+    func indexOf(_ card: Card) -> Int {
+        for index in 0..<self.cards.count {
+            if self.cards[index].id == card.id {
+                return index
+            
+            }
+        }
+        return 0 //TODO: Replace return value!
     }
     
     
