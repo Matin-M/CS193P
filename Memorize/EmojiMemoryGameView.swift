@@ -29,7 +29,7 @@ struct EmojiMemoryGameView: View {
                 if (self.viewModel.cards.count >= 5) {
                     CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    })
+                        })
                 }
                 else {
                     CardView(card: card).onTapGesture(perform: {
@@ -40,7 +40,7 @@ struct EmojiMemoryGameView: View {
                 //Setting environment for all elements in zstack.
                 })
             }
-        }.foregroundColor(Color.orange).padding()
+            }.foregroundColor(Color.orange).padding()
         
 
     }
@@ -51,20 +51,21 @@ struct EmojiMemoryGameView: View {
  CardView function generates rectangular elements containing emojis.
  */
 struct CardView: View{
-    //Since no init method, all properties must be initialized.
     var card: MemoryGame<String>.Card
     var body: some View{
-        ZStack{
-            if card.isFaceUp == true{
-                RoundedRectangle(cornerRadius: 20.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 20.0).stroke(lineWidth: 4)
-                Text(card.content)
+        GeometryReader(content: { geometry in
+            ZStack{
+                if self.card.isFaceUp == true{
+                    RoundedRectangle(cornerRadius: 20.0).fill(Color.white)
+                    RoundedRectangle(cornerRadius: 20.0).stroke(lineWidth: 4)
+                    Text(self.card.content)
+                }
+                else{
+                    backCardView()
+                }
+                
             }
-            else{
-                backCardView()
-            }
-            
-        }
+        })
     }
 
 }
