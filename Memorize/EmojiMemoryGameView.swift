@@ -34,7 +34,7 @@ struct EmojiMemoryGameView: View {
                 else {
                     CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                    }).font(Font.largeTitle)
+                    })
                 }
                 
                 //Setting environment for all elements in zstack.
@@ -53,22 +53,36 @@ struct EmojiMemoryGameView: View {
 struct CardView: View{
     var card: MemoryGame<String>.Card
     var body: some View{
-        GeometryReader(content: { geometry in
-            ZStack{
-                if self.card.isFaceUp == true{
-                    RoundedRectangle(cornerRadius: 20.0).fill(Color.white)
-                    RoundedRectangle(cornerRadius: 20.0).stroke(lineWidth: 4)
-                    Text(self.card.content)
-                }
-                else{
-                    backCardView()
-                }
-                
-            }
-        })
+        GeometryReader{ geometry in
+            self.body(for: geometry.size)
+        }
     }
-
+    
+    func body(for size: CGSize) -> some View {
+        ZStack{
+            if card.isFaceUp == true{
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+                Text(card.content)
+            }
+            else{
+                backCardView()
+            }
+            
+        }
+            //Geometry variable contains height/width information of view.
+            //Scaling down to 75% size in order to avoid clipping.
+        .font(Font.system(size: min(size.width, size.height) * fontScaleFactor ))
+    }
+    
+    //MARK: - Drawing Constants:
+    
+    let cornerRadius: CGFloat = 10.0
+    let edgeLineWidth: CGFloat = 3
+    let fontScaleFactor: CGFloat = 0.75
 }
+
+
 
 /**
  backCardView generates flipped card.
