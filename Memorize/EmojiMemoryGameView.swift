@@ -22,25 +22,14 @@ struct EmojiMemoryGameView: View {
     
     //Computed vars like body are not stored in memory.
     var body: some View{
-        VStack(alignment: .leading, spacing: 4) {
-            HStack(spacing: 4) {
-            ForEach(viewModel.cards, content: {card in
-                
-                if (self.viewModel.cards.count >= 5) {
-                    CardView(card: card).onTapGesture(perform: {
+        
+        Grid (viewModel.cards, viewForItem: {card in
+                CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                        })
-                }
-                else {
-                    CardView(card: card).onTapGesture(perform: {
-                    self.viewModel.choose(card: card)
-                    })
-                }
+                })
                 
                 //Setting environment for all elements in zstack.
-                })
-            }
-            }.foregroundColor(Color.orange).padding()
+        }).foregroundColor(Color.orange).padding()
         
 
     }

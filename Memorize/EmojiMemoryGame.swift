@@ -26,7 +26,6 @@ class EmojiMemoryGame: ObservableObject {
             emojis[pairIndex]
         })
             
-        
     }
     
     
