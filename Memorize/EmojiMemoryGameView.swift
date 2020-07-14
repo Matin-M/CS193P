@@ -26,7 +26,7 @@ struct EmojiMemoryGameView: View {
         Grid (viewModel.cards, viewForItem: {card in
                 CardView(card: card).onTapGesture(perform: {
                     self.viewModel.choose(card: card)
-                })
+                    }).padding(5)
                 
                 //Setting environment for all elements in zstack.
         }).foregroundColor(Color.orange).padding()
