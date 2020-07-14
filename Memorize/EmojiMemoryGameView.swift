@@ -55,7 +55,10 @@ struct CardView: View{
                 Text(card.content)
             }
             else{
-                backCardView()
+                if !card.isMatched {
+                    backCardView()
+                }
+                
             }
             
         }
