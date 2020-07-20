@@ -23,9 +23,12 @@ struct EmojiMemoryGameView: View {
     //Computed vars like body are not stored in memory.
     var body: some View{
         VStack {
-            RoundedRectangle(cornerRadius: 5).frame(width: 100, height: 50).onTapGesture {
-                print("Newbutton Clicked!")
-            }
+            ZStack {
+                RoundedRectangle(cornerRadius: 5).onTapGesture {
+                    print("New Game Button Clicked")
+                }
+                Text("New Game").colorInvert()
+            }.frame(width: 100, height: 50)
             Grid (viewModel.cards, viewForItem: {card in
                     CardView(card: card).onTapGesture(perform: {
                         self.viewModel.choose(card: card)
