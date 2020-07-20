@@ -15,8 +15,9 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable{
     var cards: Array<Card>
     
-    var indexOfFaceUp: Int? {
+    var indexOfOnlyFaceUp: Int? {
         get {
+            //Stores all faceup cards in array.
             var faceUpCardsIndicies = [Int]()
             for index in cards.indices {
                 if cards[index].isFaceUp{
@@ -30,6 +31,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
             }
         }
         set {
+            
+            //New value is the new assigned int to indexOfOnlyFaceUp
             for index in cards.indices{
                 if index == newValue{
                     cards[index].isFaceUp = true
@@ -42,11 +45,14 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
     
     //Functions that modify 'self' utilized in structs.
     mutating func choose(card: Card){
-        print("Card Chosen!\(card)")
-        if let chosenIndex: Int = cards.firstIndex(matching: card), !cards[chosenIndex].isFaceUp,
-        !cards[chosenIndex].isMatched{
+        
+        print("Card Chosen! \(card)")
+        //See if chosen card is not faceup and is not matched yet.
+        if let chosenIndex: Int = cards.firstIndex(matching: card), cards[chosenIndex].isFaceUp == false,
+        cards[chosenIndex].isMatched == false{
             
-            if let potentialMatchIndex = indexOfFaceUp {
+            //
+            if let potentialMatchIndex = indexOfOnlyFaceUp {
                 if cards[chosenIndex].content == cards[potentialMatchIndex].content {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
@@ -54,7 +60,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
                 
                 self.cards[chosenIndex].isFaceUp = true
             } else {
-                indexOfFaceUp = chosenIndex
+                indexOfOnlyFaceUp = chosenIndex
             }
             
             
