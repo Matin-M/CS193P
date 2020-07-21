@@ -19,12 +19,14 @@ class EmojiMemoryGame: ObservableObject {
     
     
     static func createMemoryGame() -> MemoryGame<String> {
-        var emojis = ["👻","🎃","🐓","😃","😆"]
+        var emojis = [["👻","🎃","🐓","😃","😆"],["A","B","C","D","E"]]
         emojis = emojis.shuffled()
+        //Pick a random theme.
+        let randomTheme: Int = Int.random(in: 0..<2)
         return MemoryGame<String>(numberOfPairsOfCards: Int.random(in: 1..<6), cardContentFunc: {
             //Closure param: pairIndex. closure return type: String.
             pairIndex in
-            emojis[pairIndex]
+            emojis[randomTheme][pairIndex]
         })
             
     }
@@ -44,7 +46,7 @@ class EmojiMemoryGame: ObservableObject {
         model.choose(card: card)
     }
     
-    //Resets game by redeclaring local NewGame Func. 
+    //Resets game by redeclaring local NewGame Func.
     func resetGame() -> Void {
         objectWillChange.send()
         model = EmojiMemoryGame.createMemoryGame()
