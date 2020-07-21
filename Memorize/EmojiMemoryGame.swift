@@ -17,6 +17,7 @@ class EmojiMemoryGame: ObservableObject {
     //Published keyword calls change.send when model is changed.
     @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
     
+    
     static func createMemoryGame() -> MemoryGame<String> {
         var emojis = ["👻","🎃","🐓","😃","😆"]
         emojis = emojis.shuffled()
@@ -43,6 +44,7 @@ class EmojiMemoryGame: ObservableObject {
         model.choose(card: card)
     }
     
+    //Resets game by redeclaring local NewGame Func. 
     func resetGame() -> Void {
         objectWillChange.send()
         model = EmojiMemoryGame.createMemoryGame()
