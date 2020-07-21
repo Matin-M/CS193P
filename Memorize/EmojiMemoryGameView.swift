@@ -26,6 +26,7 @@ struct EmojiMemoryGameView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 5).onTapGesture {
                     print("New Game Button Clicked")
+                    self.viewModel.resetGame()
                 }
                 Text("New Game").colorInvert()
             }.frame(width: 100, height: 50)
@@ -63,7 +64,7 @@ struct CardView: View{
                 Text(card.content)
             }
             else{
-                if !card.isMatched {
+                if card.isMatched == false{
                     backCardView()
                 }
                 
