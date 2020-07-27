@@ -13,9 +13,9 @@ import Foundation
 
 //Structs are go to data structure.
 struct MemoryGame<CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     
-    var indexOfOnlyFaceUp: Int? {
+    private var indexOfOnlyFaceUp: Int? {
         get {
             //Stores all faceup cards in array.
             var faceUpCardsIndicies = [Int]()
