@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E845CDE24D345F500324B13 /* CircleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E845CDD24D345F500324B13 /* CircleTimer.swift */; };
 		9EB2C29424AEAA9D0041C88B /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2C29324AEAA9D0041C88B /* MemoryGame.swift */; };
 		9EB2C29624AEB2630041C88B /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB2C29524AEB2630041C88B /* EmojiMemoryGame.swift */; };
 		9EBE7BC924AC16180008627A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBE7BC824AC16180008627A /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E845CDD24D345F500324B13 /* CircleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleTimer.swift; sourceTree = "<group>"; };
 		9EB2C29324AEAA9D0041C88B /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = SOURCE_ROOT; };
 		9EB2C29524AEB2630041C88B /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		9EBE7BC524AC16180008627A /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				9ECD9B6424BE4B8F00E3992C /* Array+Identifiable.swift */,
 				9ECD9B6224BE384600E3992C /* GridLayout.swift */,
 				9EB2C29524AEB2630041C88B /* EmojiMemoryGame.swift */,
+				9E845CDD24D345F500324B13 /* CircleTimer.swift */,
 				9EB2C29324AEAA9D0041C88B /* MemoryGame.swift */,
 				9EBE7BCE24AC16220008627A /* Assets.xcassets */,
 				9EBE7BD324AC16220008627A /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				9EB2C29624AEB2630041C88B /* EmojiMemoryGame.swift in Sources */,
 				9ECD9B6524BE4B8F00E3992C /* Array+Identifiable.swift in Sources */,
 				9ECD9B6324BE384600E3992C /* GridLayout.swift in Sources */,
+				9E845CDE24D345F500324B13 /* CircleTimer.swift in Sources */,
 				9ECD9B6124BE2C8C00E3992C /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

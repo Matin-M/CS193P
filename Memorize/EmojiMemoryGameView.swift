@@ -61,6 +61,7 @@ struct CardView: View{
             if card.isFaceUp == true{
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+                CircleTimer(startAngle: Angle.degrees(0), endAngle: Angle.degrees(110)).padding(5).opacity(0.4)
                 Text(card.content)
             }
             else{
@@ -80,7 +81,7 @@ struct CardView: View{
     
     private let cornerRadius: CGFloat = 10.0
     private let edgeLineWidth: CGFloat = 3
-    private let fontScaleFactor: CGFloat = 0.75
+    private let fontScaleFactor: CGFloat = 0.7
 }
 
 
